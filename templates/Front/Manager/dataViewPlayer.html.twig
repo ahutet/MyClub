@@ -1,0 +1,8 @@
+<tr id="tr_{{ player.id }}">
+    <td class="align-middle">
+        <a href="{{ path('front_player_details_edit', {player: player.id, team: team.id}) }}"
+           class="font-weight-bold text-white"><u>{{ player.fullName }}</u></a>
+    </td>
+    <td class="align-middle text-white">{{ player.birthdate|date("d/m/Y") }}</td>
+    <td class="align-middle text-white">{{ player.email }}</td>
+</tr>

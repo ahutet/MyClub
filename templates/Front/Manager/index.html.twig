@@ -1,0 +1,35 @@
+{% extends 'menu.html.twig' %}
+
+{% block title %}Le Club{% endblock %}
+
+{% block body_menu %}
+    <div class="container">
+        <div class="w-50 text-center mt-5 text-white mr-auto ml-auto">
+            <h1>Liste des équipes du club : <span class="text-warning">{{ club.name }}</span></h1>
+            {{ form_start(form) }}
+            <div class="row mb-2 pt-3">
+                <div class="col-12 text-right">
+                    {{ form_row(form.season) }}
+                    {{ form_row(form.submit) }}
+                </div>
+            </div>
+            {{ form_end(form) }}
+            <div class="table-responsive mt-3">
+                <table class="table table-sm" id="tableCustomers">
+                    <thead class="shadow-none text-warning">
+                    <tr>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Division</th>
+                        <th scope="col">Saison</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for team in teams %}
+                        {% include 'Front/Manager/dataViewTeam.html.twig' %}
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

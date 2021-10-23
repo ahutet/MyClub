@@ -1,0 +1,57 @@
+{% extends 'menu.html.twig' %}
+
+{% block title %}Equipe : {{ team.name }}{% endblock %}
+
+{% block body_menu %}
+    <div class="container">
+        <div class="w-50 text-center mt-5 mr-auto ml-auto">
+            <h1 class="text-white">Liste des joueurs de l'équipe : <span class="text-warning">{{ team.name }}</span>
+            </h1>
+            <h5 class="text-white">Pour la saison : {{ team.season.name }}</h5>
+            <div class="table-responsive mt-3">
+                <table class="table table-sm" id="tableCustomers">
+                    <thead class="shadow-none text-warning">
+                    <tr>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Date de naissance</th>
+                        <th scope="col">Email</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for player in team.players %}
+                        {% include 'Front/Manager/dataViewPlayer.html.twig' %}
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <button type="button"
+                        class="btn btn-link text-dark position-relative text-left font-weight-bold mr-1"
+                        data-toggle="modal" data-target="#addPlayerModal">
+                    <i class="fas fa-user-plus"></i> Ajouter un joueur
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="addPlayerModal" tabindex="-1" role="dialog"
+         aria-labelledby="addPlayerModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addPlayerModalLabel">Ajout d'un joueur</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {{ form_start(formAddPlayer) }}
+                    {{ form_widget(formAddPlayer) }}
+                </div>
+                <div class="modal-footer">
+                    <input id="teamId" name="teamId" type="hidden" value="{{ team.id }}">
+                    <button type="button" class="btn btn-warning" data-dismiss="modal">Annuler</button>
+                    <button type="submit" class="btn btn-warning">Ajouter le joueur</button>
+                </div>
+                {{ form_end(formAddPlayer) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

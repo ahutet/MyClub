@@ -1,0 +1,57 @@
+{% extends 'menu.html.twig' %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block title %}{{ player.fullname }} statistiques saison {{ team.season.name }}{% endblock %}
+
+{% block body_menu %}
+    <div class="container">
+        <div class="d-flex justify-content-center h-100">
+            <div class="card_playerDetails">
+                <div class="card-header">
+                    <h3 class="text-white">Statistiques : <br>{{ player.fullname }}</h3>
+                    <h5 class="text-center text-white">Saison : {{ team.season.name }}</h5>
+                </div>
+                {{ form_start(form) }}
+                <div class="card-body">
+                    {{ form_label(form.nbMatch) }}
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-users"></i></span>
+                        </div>
+
+                        {{ form_widget(form.nbMatch, { 'attr': {'class': 'form-control'} }) }}
+                    </div>
+                    {{ form_label(form.nbMinutes) }}
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-clock"></i></span>
+                        </div>
+                        {{ form_widget(form.nbMinutes, { 'attr': {'class': 'form-control'} }) }}
+                    </div>
+                    {{ form_label(form.nbPass) }}
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="far fa-futbol"></i></span>
+                        </div>
+                        {{ form_widget(form.nbPass, { 'attr': {'class': 'form-control'} }) }}
+                    </div>
+                    {{ form_label(form.nbGoals) }}
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-bullseye"></i></span>
+                        </div>
+                        {{ form_widget(form.nbGoals, { 'attr': {'class': 'form-control'} }) }}
+                    </div>
+                    <div class="form-group mt-4">
+                        <a href="{{ path( 'front_team_view', {team: team.id} ) }}"
+                           class="btn float-left login_btn">Retour</a>
+                        <button type="submit"
+                                class="btn float-right login_btn">Enregistrer
+                        </button>
+                    </div>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

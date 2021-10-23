@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}My Club{% endblock %}
+
+{% block body %}
+    <div class="homeInfo">
+        <h1>Bienvenue sur My Club !</h1>
+        <p><span><a href="{{ path('app_login') }}">Connectez-vous</a></span> pour accéder aux informations du club</p>
+    </div>
+{% endblock %}

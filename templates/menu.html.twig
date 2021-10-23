@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <header class="fixed-top pr-1 pl-1 header">
+        <div class="navbar-dark justify-content-between d-flex align-items-center pr-2 pl-1">
+            {% if app.user %}
+                <div class="d-none d-lg-block mt-3">
+                    <span id="appUser">
+                        <span class="text-light font-weight-bold small">Connectez en tant que : {{ app.user.fullName }}</span>
+                    </span>
+                </div>
+            {% endif %}
+        </div>
+        <nav class="fixed-top mt-5 pt-2 pl-5">
+            {% if is_granted('ROLE_ADMIN') %}
+                <div class="col">
+                    <a href="" class="text-warning">
+                        <i class="fas fa-home fa-nav" style="width: 30px"></i>
+                        <span>Nouveau club</span>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="" class="text-warning">
+                        <i class="fas fa-user-plus fa-nav" style="width: 30px"></i>
+                        <span>Nouveau user</span>
+                    </a>
+                </div>
+            {% endif %}
+            {% if is_granted('ROLE_MANAGER') %}
+                <div class="col">
+                    <a href="{{ path('home_manager') }}" class="text-warning">
+                        <i class="fas fa-users fa-nav" style="width: 30px"></i>
+                        <span>Liste des équipes</span>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="{{ path('front_team_edit') }}" class="text-warning">
+                        <i class="fas fa-plus-square fa-nav" style="width: 30px"></i>
+                        <span>Nouvelle équipe</span>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="{{ path('front_player_edit') }}" class="text-warning">
+                        <i class="fas fa-plus-square fa-nav" style="width: 30px"></i>
+                        <span>Nouveau joueur</span>
+                    </a>
+                </div>
+            {% endif %}
+            {% if app.user %}
+                <div class="col">
+                    <a href="{{ path('app_logout') }}" class="text-warning">
+                        <i class="fas fa-sign-out-alt fa-nav" style="width: 30px"></i>
+                        <span class="align-middle">Déconnexion</span>
+                    </a>
+                </div>
+            {% endif %}
+        </nav>
+    </header>
+    <main>
+    {% block body_menu %}
+    {% endblock %}
+    </main>
+{% endblock %}
+
