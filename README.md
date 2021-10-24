@@ -7,7 +7,7 @@
   * composer install
 
 #### 3 - Création et connection BDD
-Copier/coller le contenu du .env dans .env.local et modifier la variable DATABASE_URL
+Copier/coller le contenu du .env dans .env.local et modifier la variable DATABASE_URL avec vous informations
   * php bin/console doctrine:database:create
   * php bin/console make:migration
   * php bin/console doctrine:migration:migrate
