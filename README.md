@@ -1,4 +1,4 @@
-Projet test Sportyma
+# Projet test Sportyma
 
 #### 1 - Cloner le repository
  git clone git@gitlab.com:ahutet/MyClub.git
