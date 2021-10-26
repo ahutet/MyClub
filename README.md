@@ -17,3 +17,8 @@ Copier/coller le contenu du .env dans .env.local et modifier la variable DATABAS
 
 #### 5 - Lancer le projet
   * symfony server:start
+
+#### 6 - Login de connexion
+  * manager@manager.fr
+  * manager
+
