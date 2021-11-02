@@ -1,7 +1,7 @@
 # Projet test Sportyma
 
 #### 1 - Cloner le repository
- * git clone git@gitlab.com:ahutet/MyClub.git
+ * git clone git@github.com:ahutet/MyClub.git
 
 #### 2 - Installer les dependances
   * composer install
